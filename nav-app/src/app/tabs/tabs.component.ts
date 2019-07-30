@@ -63,11 +63,9 @@ export class TabsComponent implements AfterContentInit {
                 this.loadLayerFromURL(this.loadURL, true);
                 if (this.dynamicTabs.length == 0) this.newLayer(); // failed load from url, so create new blank layer
             } else if (config["default_layers"]["enabled"]){
-                let first = true;
                 for (let url of config["default_layers"]["urls"]) {
                     console.log(url);
-                    this.loadLayerFromURL(url, first);
-                    first = false;
+                    this.loadLayerFromURL(url, false);
                 }
                 // this.loadURL = config["default_layer"]["location"]
                 // console.log(this.loadURL)

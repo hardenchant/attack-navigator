@@ -7,9 +7,12 @@ WORKDIR /nav-app/
 # copy over needed files
 COPY . ./
 
-# install packages and build 
-RUN npm install --unsafe-perm
+RUN npm run build
+
+RUN npm install http-server -g
+
+WORKDIR /nav-app/dist/
 
 EXPOSE 4200
 
-CMD npm start
+CMD http-server -a 0.0.0.0 -p 4200
